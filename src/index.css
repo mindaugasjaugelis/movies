@@ -3,6 +3,7 @@
   width: 50%;
   border: 1px solid silver;
   font-family: 'Courier New', Courier, monospace;
+  border-radius: 8px;
 }
 
 .headerContainer{
@@ -19,14 +20,21 @@ table.authors-with-movies {
   font-size: 20px;
 }
 
+.authors-with-movies-td {
+  width: 50%;
+  vertical-align: top;
+}
+
 table tr .item {
   padding: 5px;
+  cursor: pointer;
 }
 
 table tr td .item-fav {
   width: 28px;
   border: 1px solid silver;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 table tr td .item-fav-true {
@@ -35,6 +43,7 @@ table tr td .item-fav-true {
 
 table tr td .item:hover {
   background-color: #c0c0c026;
+  border-radius: 8px;
 }
 
 table.authors {
