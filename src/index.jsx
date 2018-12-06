@@ -31,4 +31,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
+//TODO: NEkeisti duomenu steite!!! pvz setFavoriteAuthor
+//TODO: Remove item
+//TODO: Mark/Unmark as favorite
 //TODO: convert to ts file

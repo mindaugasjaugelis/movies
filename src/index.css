@@ -1,6 +1,7 @@
 .container {
   margin: auto;
   width: 50%;
+  min-width: 600px;
   border: 1px solid silver;
   font-family: 'Courier New', Courier, monospace;
   border-radius: 8px;
@@ -30,14 +31,40 @@ table tr .item {
   cursor: pointer;
 }
 
-table tr td .item-fav {
+div.item-fav {
   width: 28px;
+  height: 28px;
   border: 1px solid silver;
   border-radius: 50%;
   cursor: pointer;
 }
 
-table tr td .item-fav-true {
+input.new-item {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 18px;
+  
+  border-radius: 5px;
+  height: 24px;
+  width: 95%;
+  padding-left: 4px;
+  margin-left: 4px;
+}
+
+div.add-btn {
+  width: 28px;
+  height: 25px;
+  padding-top: 3px;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+
+  border: 1px solid silver;
+  background-color: #c0c0c026;
+  color: grey;
+  border-radius: 10px;
+}
+
+div.item-fav-true {
   background-color: gold;
 }
 
