@@ -5,7 +5,7 @@ function Movie(props) {
     <tr>
       <td className="item">{props.name}</td>
       <td>
-        <div className="item-fav">
+      <div className={props.isFavorite ? "item-fav item-fav-true" : "item-fav"} onClick={props.setFavoriteMovie}>
         </div>
       </td>
     </tr>
@@ -55,7 +55,11 @@ class NewMovie extends React.Component {
 export default class Movies extends React.Component {
   render() {
     var moviesToShow = this.props.selectedAuthor ? this.props.selectedAuthor.movies.map(movie => {
-      return <Movie name={movie.name} key={movie.key.toString()} />
+      return <Movie 
+        name={movie.name} 
+        key={movie.key.toString()} 
+        isFavorite={movie.isFavorite}
+        setFavoriteMovie={() => this.props.setFavoriteMovie(movie.key)}/>
     }) : null;
 
     var header = this.props.selectedAuthor ? this.props.selectedAuthor.name + " movies" : null;

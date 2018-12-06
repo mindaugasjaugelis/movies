@@ -49,6 +49,14 @@ export default class AuthortsWithMovies extends React.Component {
     }
   }
 
+  getMovieByKey(key, movies) {
+    for (let i = 0; i < movies.length; i++) {
+      if (movies[i].key === key) {
+        return movies[i];
+      }
+    }
+  }
+
   getNextAuthorKey() {
     var authors = this.state.authors;
     var maxKey = authors.length > 0
@@ -86,6 +94,18 @@ export default class AuthortsWithMovies extends React.Component {
     var authorToSetAsFavorite = this.getAuthorByKey(key, authors);
     authorToSetAsFavorite.isFavorite = !authorToSetAsFavorite.isFavorite;
 
+    this.setState({
+      authors: authors
+    });
+  }
+
+  setFavoriteMovie(key) {
+    var authors = update(this.state.authors, {});
+    var selectedAuthor = this.getAuthorByKey(this.state.selectedAuthor.key, authors);
+    var movieToSetAsFavorite = this.getMovieByKey(key, selectedAuthor.movies);
+    movieToSetAsFavorite.isFavorite = !movieToSetAsFavorite.isFavorite;
+
+    //TODO: Kodlel nekeiciant selectedAuthor vistiek pasimato pakeitimai???
     this.setState({
       authors: authors
     });
@@ -153,6 +173,7 @@ export default class AuthortsWithMovies extends React.Component {
             <td className="authors-with-movies-td">
               <Movies
                 selectedAuthor={this.state.selectedAuthor}
+                setFavoriteMovie={this.setFavoriteMovie.bind(this)}
                 add={this.addMovie.bind(this)} />
             </td>
           </tr>
