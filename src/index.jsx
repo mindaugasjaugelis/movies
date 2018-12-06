@@ -31,7 +31,9 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-//TODO: NEkeisti duomenu steite!!! pvz setFavoriteAuthor
 //TODO: Remove item
-//TODO: Mark/Unmark as favorite
+// Delete at a specific index, no matter what value is in it
+//update(state, { items: { $splice: [[index, 1]] } });
+
+//Remove immutability-helper and install it from npm
 //TODO: convert to ts file

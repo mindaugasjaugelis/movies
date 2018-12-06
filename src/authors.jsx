@@ -59,7 +59,7 @@ export default class Authors extends React.Component {
         name={author.name} 
         key={author.key.toString()} 
         isFavorite={author.isFavorite}
-        onClick={() => this.props.setMoviesToShow(author.key)} 
+        onClick={() => this.props.setSelectedAuthor(author.key)} 
         setAsFavorite={() => this.props.setFavoriteAuthor(author.key)}/>;
     });
 
