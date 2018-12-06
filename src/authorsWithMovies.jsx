@@ -94,6 +94,10 @@ export default class AuthortsWithMovies extends React.Component {
     var authorToSetAsFavorite = this.getAuthorByKey(key, authors);
     authorToSetAsFavorite.isFavorite = !authorToSetAsFavorite.isFavorite;
 
+    // for (let i = 0; i < authorToSetAsFavorite.movies.length; i++) {
+    //   authorToSetAsFavorite.movies[i].isFavorite = authorToSetAsFavorite.isFavorite;
+    // }
+
     this.setState({
       authors: authors
     });
@@ -105,6 +109,21 @@ export default class AuthortsWithMovies extends React.Component {
     var movieToSetAsFavorite = this.getMovieByKey(key, selectedAuthor.movies);
     movieToSetAsFavorite.isFavorite = !movieToSetAsFavorite.isFavorite;
 
+    //TODO: Kodlel nekeiciant selectedAuthor vistiek pasimato pakeitimai???
+    this.setState({
+      authors: authors
+    });
+  }
+
+  removeMovie(key) {
+    // Delete at a specific index, no matter what value is in it
+    //update(state, { items: { $splice: [[index, 1]] } });
+    var authors = update(this.state.authors, {});
+    var selectedAuthor = this.getAuthorByKey(this.state.selectedAuthor.key, authors);
+    selectedAuthor.movies = selectedAuthor.movies.filter((m) => {
+      return m.key !== key;
+    });
+    
     //TODO: Kodlel nekeiciant selectedAuthor vistiek pasimato pakeitimai???
     this.setState({
       authors: authors
@@ -132,7 +151,7 @@ export default class AuthortsWithMovies extends React.Component {
     };
 
     var authors = update(this.state.authors, { $push: [author] });
-    this.setState({ 
+    this.setState({
       authors: authors,
       selectedAuthor: author
     });
@@ -174,6 +193,7 @@ export default class AuthortsWithMovies extends React.Component {
               <Movies
                 selectedAuthor={this.state.selectedAuthor}
                 setFavoriteMovie={this.setFavoriteMovie.bind(this)}
+                removeMovie={this.removeMovie.bind(this)}
                 add={this.addMovie.bind(this)} />
             </td>
           </tr>

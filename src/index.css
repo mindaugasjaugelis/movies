@@ -42,7 +42,7 @@ div.item-fav {
 input.new-item {
   font-family: 'Courier New', Courier, monospace;
   font-size: 18px;
-  
+
   border-radius: 5px;
   height: 24px;
   width: 95%;
@@ -50,18 +50,24 @@ input.new-item {
   margin-left: 4px;
 }
 
-div.add-btn {
+div.btn {
   width: 28px;
   height: 25px;
   padding-top: 3px;
   cursor: pointer;
   font-weight: bold;
   text-align: center;
+}
 
-  border: 1px solid silver;
-  background-color: #c0c0c026;
+div.add-btn {
   color: grey;
   border-radius: 10px;
+  background-color: #c0c0c026;
+  border: 1px solid silver;
+}
+
+div.del-btn {
+  color: red;
 }
 
 div.item-fav-true {

@@ -8,6 +8,9 @@ function Author(props) {
         <div className={props.isFavorite ? "item-fav item-fav-true" : "item-fav"} onClick={props.setAsFavorite}>
         </div>
       </td>
+      {/* <td>
+        <div className={"btn del-btn"} onClick={props.setAsFavorite}>-</div>
+      </td>       */}
     </tr>
   );
 }
@@ -45,7 +48,7 @@ class NewAuthor extends React.Component {
             name="newAuthorInput"></input>
         </td>
         <td>
-          <div className="add-btn" onClick={this.addClick.bind(this)}>+</div>
+          <div className="btn add-btn" onClick={this.addClick.bind(this)}>+</div>
         </td>
       </tr>
     );
