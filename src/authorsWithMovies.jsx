@@ -201,6 +201,7 @@ export default class AuthortsWithMovies extends React.Component {
             <td className="authors-with-movies-td">
               <Authors
                 authors={this.state.authors}
+                selectedAuthor={this.state.selectedAuthor}
                 setSelectedAuthor={this.setSelectedAuthor.bind(this)}
                 setFavoriteAuthor={this.setFavoriteAuthor.bind(this)}
                 removeAuthor={this.removeAuthor.bind(this)}

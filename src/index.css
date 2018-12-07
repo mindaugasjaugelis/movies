@@ -31,6 +31,16 @@ table tr .item {
   cursor: pointer;
 }
 
+table tr .item-selected {
+  background-color: #c0c0c026;
+  border-radius: 8px;
+}
+
+table tr td .item:hover {
+  background-color: #c0c0c026;
+  border-radius: 8px;
+}
+
 div.item-fav {
   width: 28px;
   height: 28px;
@@ -72,11 +82,6 @@ div.del-btn {
 
 div.item-fav-true {
   background-color: gold;
-}
-
-table tr td .item:hover {
-  background-color: #c0c0c026;
-  border-radius: 8px;
 }
 
 table.authors {
