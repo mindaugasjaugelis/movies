@@ -4,9 +4,9 @@ import NewAuthor from './new-author';
 function Author(props) { 
   return (
     <tr>
-      <td className={props.isSelected ? "item item-selected" : "item"} onClick={props.onClick}>{props.name}</td>
+      <td className={`item ${props.isSelected ? "item-selected" : null}`} onClick={props.onClick}>{props.name}</td>
       <td>
-        <div className={props.isFavorite ? "item-fav item-fav-true" : "item-fav"} onClick={props.setAsFavorite}>
+        <div className={`item-fav ${props.isFavorite ? "item-fav-true" : null}`} onClick={props.setAsFavorite}>
         </div>
       </td>
       <td>
