@@ -9,9 +9,9 @@ function Author(props) {
         <div className={props.isFavorite ? "item-fav item-fav-true" : "item-fav"} onClick={props.setAsFavorite}>
         </div>
       </td>
-      {/* <td>
-        <div className={"btn del-btn"} onClick={props.setAsFavorite}>-</div>
-      </td>       */}
+      <td>
+        <div className={"btn del-btn"} onClick={props.remove}>-</div>
+      </td>      
     </tr>
   );
 }
@@ -24,7 +24,8 @@ export default class Authors extends React.Component {
         key={author.key.toString()} 
         isFavorite={author.isFavorite}
         onClick={() => this.props.setSelectedAuthor(author.key)} 
-        setAsFavorite={() => this.props.setFavoriteAuthor(author.key)}/>;
+        setAsFavorite={() => this.props.setFavoriteAuthor(author.key)}
+        remove={() => this.props.removeAuthor(author.key)}/>;
     });
 
     return (

@@ -115,21 +115,6 @@ export default class AuthortsWithMovies extends React.Component {
     });
   }
 
-  removeMovie(key) {
-    // Delete at a specific index, no matter what value is in it
-    //update(state, { items: { $splice: [[index, 1]] } });
-    var authors = update(this.state.authors, {});
-    var selectedAuthor = this.getAuthorByKey(this.state.selectedAuthor.key, authors);
-    selectedAuthor.movies = selectedAuthor.movies.filter((m) => {
-      return m.key !== key;
-    });
-    
-    //TODO: Kodlel nekeiciant selectedAuthor vistiek pasimato pakeitimai???
-    this.setState({
-      authors: authors
-    });
-  }
-
   setSelectedAuthor(key) {
     var authors = update(this.state.authors, {});
     var selectedAuthor = this.getAuthorByKey(key, authors);
@@ -157,6 +142,22 @@ export default class AuthortsWithMovies extends React.Component {
     });
   }
 
+  removeAuthor(key) {
+    var authors = this.state.authors.filter(a => {
+      return a.key !== key;
+    });
+
+    var newState = {
+      authors: authors
+    };
+
+    if (key === this.state.selectedAuthor.key) {
+      newState.selectedAuthor = null;
+    }
+
+    this.setState(newState);
+  }
+
   addMovie(name) {
     if (this.state.selectedAuthor == null || name === null || name === undefined || name.length === 0) {
       return;
@@ -177,6 +178,21 @@ export default class AuthortsWithMovies extends React.Component {
     });
   }
 
+  removeMovie(key) {
+    // Delete at a specific index, no matter what value is in it
+    //update(state, { items: { $splice: [[index, 1]] } });
+    var authors = update(this.state.authors, {});
+    var selectedAuthor = this.getAuthorByKey(this.state.selectedAuthor.key, authors);
+    selectedAuthor.movies = selectedAuthor.movies.filter((m) => {
+      return m.key !== key;
+    });
+
+    //TODO: Kodlel nekeiciant selectedAuthor vistiek pasimato pakeitimai???
+    this.setState({
+      authors: authors
+    });
+  }
+
   render() {
     return (
       <table className="authors-with-movies">
@@ -187,6 +203,7 @@ export default class AuthortsWithMovies extends React.Component {
                 authors={this.state.authors}
                 setSelectedAuthor={this.setSelectedAuthor.bind(this)}
                 setFavoriteAuthor={this.setFavoriteAuthor.bind(this)}
+                removeAuthor={this.removeAuthor.bind(this)}
                 add={this.addAuthor.bind(this)} />
             </td>
             <td className="authors-with-movies-td">

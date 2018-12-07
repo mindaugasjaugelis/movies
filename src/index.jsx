@@ -31,9 +31,9 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-//TODO: Remove item
-// Delete at a specific index, no matter what value is in it
-//update(state, { items: { $splice: [[index, 1]] } });
+//TODO: Remove immutability-helper and install it from npm
 
-//Remove immutability-helper and install it from npm
+//TODO: Redux
+
 //TODO: convert to ts file
+//TODO: Add watchlist
