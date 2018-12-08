@@ -151,7 +151,7 @@ export default class AuthortsWithMovies extends React.Component {
       authors: authors
     };
 
-    if (key === this.state.selectedAuthor.key) {
+    if (this.state.selectedAuthor && this.state.selectedAuthor.key === key) {
       newState.selectedAuthor = null;
     }
 
