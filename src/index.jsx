@@ -31,8 +31,6 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-//TODO: Remove immutability-helper and install it from npm
-
 //TODO: Redux
 
 //TODO: convert to ts file

@@ -1,5 +1,5 @@
 import React from 'react';
-import update from './immutability-helper';
+import update from 'immutability-helper';
 
 import Authors from './authors';
 import Movies from './movies';
