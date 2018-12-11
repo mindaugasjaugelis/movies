@@ -11,7 +11,11 @@ const mapStateToProps = state => {
 class AuthorsModel extends React.Component {
   render() {
     var authorsToPrint = this.props.authors.map(author => {
-      return <Author author={author} key={author.key} />;
+      return <Author 
+        name={author.name} 
+        key={author.key} 
+        authorKey={author.key}
+        isFavorite={author.isFavorite}/>;
     });
 
     return (

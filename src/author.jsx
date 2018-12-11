@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { 
-    setSelectedAuthor, 
-    setAsFavoriteAuthor, 
-    removeAuthor, 
+import {
+    setSelectedAuthor,
+    setAsFavoriteAuthor,
+    removeAuthor,
     addAuthor
 } from "./js/actions/index";
 
@@ -17,39 +17,33 @@ const mapDispatchToProps = dispatch => {
 };
 
 const mapStateToProps = state => {
-    return { 
+    return {
         selectedAuthorKey: state.selectedAuthor ? state.selectedAuthor.key : null
     };
-  };
+};
 
 class AuthorModel extends React.Component {
-    constructor(props){
-        super(props);
-        console.log(props.author.isFavorite)
-    }
-    
     render() {
         return (
             <tr>
                 <td
-                    className={`item ${this.props.author.key === this.props.selectedAuthorKey ? "item-selected" : null}`}
-                    onClick={() => this.props.setSelectedAuthor(this.props.author.key)}>
-                    {this.props.author.name}
+                    className={`item ${this.props.authorKey === this.props.selectedAuthorKey ? "item-selected" : null}`}
+                    onClick={() => this.props.setSelectedAuthor(this.props.authorKey)}>
+                    {this.props.name}
                 </td>
                 <td>
-                    <div 
-                        className={`item-fav ${this.props.author.isFavorite ? "item-fav-true" : null}`} 
-                        onClick={() => this.props.setAsFavoriteAuthor(this.props.author.key)}>
+                    <div
+                        className={`item-fav ${this.props.isFavorite ? "item-fav-true" : null}`}
+                        onClick={() => this.props.setAsFavoriteAuthor(this.props.authorKey)}>
                     </div>
                 </td>
                 <td>
-                    <div className={"btn del-btn"} onClick={() => this.props.remove(this.props.author.key)}>-</div>
+                    <div className={"btn del-btn"} onClick={() => this.props.remove(this.props.authorKey)}>-</div>
                 </td>
             </tr>
         );
     }
 }
-
 
 var Author = connect(mapStateToProps, mapDispatchToProps)(AuthorModel);
 export default Author;
