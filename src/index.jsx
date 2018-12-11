@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-
+import { Provider } from "react-redux";
+import store from './js/store/index';
 import AuthortsWithMovies from './authorsWithMovies';
+
+import './index.css';
 
 function Header() {
   return (
@@ -27,11 +29,13 @@ class Library extends React.Component {
 // ========================================
 
 ReactDOM.render(
-  <Library />,
-  document.getElementById('root')
-);
+  <Provider store={store}>
+    <Library />
+  </Provider>,
+  document.getElementById('root'));
 
 //TODO: Redux
+//TODO: Neveikia is favorite
+//TODO: Combine reducers
 
-//TODO: convert to ts file
 //TODO: Add watchlist

@@ -1,32 +1,17 @@
 import React from 'react';
 import NewAuthor from './new-author';
+import { connect } from "react-redux";
+import Author from "./author";
 
-function Author(props) { 
-  return (
-    <tr>
-      <td className={`item ${props.isSelected ? "item-selected" : null}`} onClick={props.onClick}>{props.name}</td>
-      <td>
-        <div className={`item-fav ${props.isFavorite ? "item-fav-true" : null}`} onClick={props.setAsFavorite}>
-        </div>
-      </td>
-      <td>
-        <div className={"btn del-btn"} onClick={props.remove}>-</div>
-      </td>      
-    </tr>
-  );
-}
+const mapStateToProps = state => {
+  return { authors: state.authors };
+};
 
-export default class Authors extends React.Component {
+
+class AuthorsModel extends React.Component {
   render() {
     var authorsToPrint = this.props.authors.map(author => {
-      return <Author 
-        name={author.name} 
-        key={author.key} 
-        isFavorite={author.isFavorite}
-        isSelected={this.props.selectedAuthor && this.props.selectedAuthor.key === author.key}
-        onClick={() => this.props.setSelectedAuthor(author.key)} 
-        setAsFavorite={() => this.props.setFavoriteAuthor(author.key)}
-        remove={() => this.props.removeAuthor(author.key)}/>;
+      return <Author author={author} key={author.key} />;
     });
 
     return (
@@ -40,9 +25,12 @@ export default class Authors extends React.Component {
         </thead>
         <tbody>
           {authorsToPrint}
-          <NewAuthor add={this.props.add} />
+          <NewAuthor />
         </tbody>
       </table>
     );
   }
 }
+
+var Authors = connect(mapStateToProps)(AuthorsModel);
+export default Authors;
