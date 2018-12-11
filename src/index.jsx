@@ -35,7 +35,7 @@ ReactDOM.render(
   document.getElementById('root'));
 
 //TODO: Redux
-//TODO: Neveikia is favorite
 //TODO: Combine reducers
 
+//TODO: immutability-helper?????
 //TODO: Add watchlist
