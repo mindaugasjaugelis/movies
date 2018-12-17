@@ -7,7 +7,6 @@ const mapStateToProps = state => {
   return { authors: state.authors };
 };
 
-
 class AuthorsModel extends React.Component {
   render() {
     var authorsToPrint = this.props.authors.map(author => {

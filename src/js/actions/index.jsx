@@ -19,3 +19,18 @@ export const addAuthor = name => ({
     type: constants.ADD_AUTHOR,
     payload: name
 });
+
+export const addMovie = name => ({
+    type: constants.ADD_MOVIE,
+    payload: name
+});
+
+export const setAsFavoriteMovie = key => ({
+    type: constants.SET_AS_FAVORITE_MOVIE,
+    payload: key
+});
+
+export const removeMovie = key => ({
+    type: constants.REMOVE_MOVIE,
+    payload: key
+});

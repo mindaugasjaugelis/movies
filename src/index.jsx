@@ -34,7 +34,6 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root'));
 
-//TODO: Redux
 //TODO: Combine reducers
 
 //TODO: immutability-helper?????

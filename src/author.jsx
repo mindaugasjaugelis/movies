@@ -3,16 +3,14 @@ import { connect } from "react-redux";
 import {
     setSelectedAuthor,
     setAsFavoriteAuthor,
-    removeAuthor,
-    addAuthor
+    removeAuthor
 } from "./js/actions/index";
 
 const mapDispatchToProps = dispatch => {
     return {
         setSelectedAuthor: key => dispatch(setSelectedAuthor(key)),
         setAsFavoriteAuthor: key => dispatch(setAsFavoriteAuthor(key)),
-        remove: key => dispatch(removeAuthor(key)),
-        add: name => dispatch(addAuthor(name))
+        remove: key => dispatch(removeAuthor(key))
     };
 };
 

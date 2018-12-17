@@ -1,13 +1,21 @@
 import React from 'react';
 import NewMovie from './new-movie';
 import Movie from './movie'
+import { connect } from "react-redux";
 
-export default class Movies extends React.Component {
+const mapStateToProps = state => {
+  return {
+      selectedAuthor: state.selectedAuthor
+  };
+};
+
+class MoviesModel extends React.Component {
   render() {
     var moviesToShow = this.props.selectedAuthor ? this.props.selectedAuthor.movies.map(movie => {
       return <Movie
         name={movie.name}
-        key={movie.key.toString()}
+        key={movie.key}
+        movieKey={movie.key}
         isFavorite={movie.isFavorite}
         setFavoriteMovie={() => this.props.setFavoriteMovie(movie.key)} 
         removeMovie={() => this.props.removeMovie(movie.key)} />
@@ -33,3 +41,6 @@ export default class Movies extends React.Component {
     );
   }
 }
+
+var Movies = connect(mapStateToProps)(MoviesModel);
+export default Movies;

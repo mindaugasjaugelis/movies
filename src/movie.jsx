@@ -1,42 +1,35 @@
 import React from 'react';
 import { connect } from "react-redux";
-// import {
-//     setSelectedAuthor,
-//     setAsFavoriteAuthor,
-//     removeAuthor,
-//     addAuthor
-// } from "./js/actions/index";
+import {
+  setAsFavoriteMovie,
+  removeMovie
+} from "./js/actions/index";
 
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         setSelectedAuthor: key => dispatch(setSelectedAuthor(key)),
-//         setAsFavoriteAuthor: key => dispatch(setAsFavoriteAuthor(key)),
-//         remove: key => dispatch(removeAuthor(key)),
-//         add: name => dispatch(addAuthor(name))
-//     };
-// };
+const mapDispatchToProps = dispatch => {
+  return {
+    setAsFavorite: key => dispatch(setAsFavoriteMovie(key)),
+    remove: key => dispatch(removeMovie(key))
+  };
+};
 
-// const mapStateToProps = state => {
-//     return {
-//         selectedAuthorKey: state.selectedAuthor ? state.selectedAuthor.key : null
-//     };
-// };
-
-class Movie {
-    render(){
-        return (
-            <tr>
-              <td className="item">{this.props.name}</td>
-              <td>
-                <div className={this.props.isFavorite ? "item-fav item-fav-true" : "item-fav"} onClick={this.props.setFavoriteMovie}>
-                </div>
-              </td>
-              <td>
-                <div className={"btn del-btn"} onClick={this.props.removeMovie}>-</div>
-              </td>
-            </tr>
-          );
-    }
+class MovieModel extends React.Component {
+  render() {
+    return (
+      <tr>
+        <td className="item">{this.props.name}</td>
+        <td>
+          <div
+            className={this.props.isFavorite ? "item-fav item-fav-true" : "item-fav"}
+            onClick={() => this.props.setAsFavorite(this.props.movieKey)}>
+          </div>
+        </td>
+        <td>
+          <div className={"btn del-btn"} onClick={() => this.props.remove(this.props.movieKey)}>-</div>
+        </td>
+      </tr>
+    );
+  }
 }
 
+var Movie = connect(null, mapDispatchToProps)(MovieModel);
 export default Movie;
