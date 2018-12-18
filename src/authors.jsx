@@ -9,6 +9,10 @@ const mapStateToProps = state => {
 
 class AuthorsModel extends React.Component {
   render() {
+    // if(this.props.authors === undefined){
+    //   return "";
+    // }
+
     var authorsToPrint = this.props.authors.map(author => {
       return <Author 
         name={author.name} 

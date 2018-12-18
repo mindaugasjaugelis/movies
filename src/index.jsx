@@ -34,7 +34,7 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root'));
 
-//TODO: Combine reducers
-
+//TODO: PERSKAITYTI apie Combine reducers
+//TODO: Type checking
 //TODO: immutability-helper?????
 //TODO: Add watchlist
