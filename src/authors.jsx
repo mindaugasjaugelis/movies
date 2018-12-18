@@ -4,15 +4,11 @@ import { connect } from "react-redux";
 import Author from "./author";
 
 const mapStateToProps = state => {
-  return { authors: state.authors };
+  return { authors: state ? state.authors : [] };
 };
 
 class AuthorsModel extends React.Component {
   render() {
-    // if(this.props.authors === undefined){
-    //   return "";
-    // }
-
     var authorsToPrint = this.props.authors.map(author => {
       return <Author 
         name={author.name} 

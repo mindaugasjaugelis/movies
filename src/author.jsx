@@ -16,7 +16,9 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
     return {
-        selectedAuthorKey: state.selectedAuthor ? state.selectedAuthor.key : null
+        selectedAuthorKey: state
+            ? (state.selectedAuthor ? state.selectedAuthor.key : null)
+            : null
     };
 };
 

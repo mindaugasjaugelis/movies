@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 
 const mapStateToProps = state => {
   return {
-      selectedAuthor: state.selectedAuthor
+      selectedAuthor: state ? state.selectedAuthor: null
   };
 };
 

@@ -46,6 +46,13 @@ var getNextMovieKey = (movies) => {
     return maxKey + 1;
 }
 
+var emptyState = () => {
+    return {
+        authors: [],
+        selectedAuthor: null
+    };
+}
+
 var setSelectedAuthor = (state, key) => {
     if (key === undefined) {
         return;
@@ -172,6 +179,10 @@ var removeMovie = (state, key) => {
 }
 
 const authorsReducer = (state, action) => {
+    if (!state) {
+        state = emptyState();
+    }
+
     switch (action.type) {
         case constants.SET_SELECTED_AUTHOR:
             return setSelectedAuthor(state, action.payload);
